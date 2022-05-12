@@ -1,0 +1,40 @@
+START TRANSACTION; 
+DELETE FROM VERTICALES
+Where vertical_id = 5;
+
+-- ROLLBACK;
+
+-- COMMIT;
+
+START TRANSACTION;
+INSERT INTO VERTICALES (vertical_ID, vertical_name, Local_id)
+VALUES
+('5', 'Envios', '134241'),
+('5', 'Envios', '138493'),
+('5', 'Envios', '142995'),
+('5', 'Envios', '146354'),
+('5', 'Envios', '182582'),
+('5', 'Envios', '221642');
+
+-- ROLLBACK;
+
+-- COMMIT;
+
+START TRANSACTION;
+
+INSERT INTO RIDERS (Nombre, fecha_de_inicio, Ciudad, Rider_ID) VALUES ("Mateo Ramirez","2022-05-05","Buenos aires",262479);
+INSERT INTO RIDERS (Nombre, fecha_de_inicio, Ciudad, Rider_ID) VALUES ("Alma Gimenez","2022-04-05","Mendoza",262428);
+INSERT INTO RIDERS (Nombre, fecha_de_inicio, Ciudad, Rider_ID) VALUES ("Bruno Terranzas","2022-05-10","Cipolletti",228900);
+INSERT INTO RIDERS (Nombre, fecha_de_inicio, Ciudad, Rider_ID) VALUES ("Soledad Valerio","2022-03-03","Salta",261037);
+SAVEPOINT Primera_insercion;
+INSERT INTO RIDERS (Nombre, fecha_de_inicio, Ciudad, Rider_ID) VALUES ("Camila Jostapei","2022-02-18","Buenos aires",261597);
+INSERT INTO RIDERS (Nombre, fecha_de_inicio, Ciudad, Rider_ID) VALUES ("Matias Benedicto","2022-02-13","Buenos aires",261045);
+INSERT INTO RIDERS (Nombre, fecha_de_inicio, Ciudad, Rider_ID) VALUES ("Pedro Pereira","2022-04-15","Buenos aires", 260551);
+INSERT INTO RIDERS (Nombre, fecha_de_inicio, Ciudad, Rider_ID) VALUES ("Tomas Rodriguez","2022-01-18","Mar del plata",228516);
+SAVEPOINT Segunda_insercion; 
+
+-- COMMIT;
+
+-- ROLLBACK;
+
+-- RELEASE SAVEPOINT `Primera_insercion`;
